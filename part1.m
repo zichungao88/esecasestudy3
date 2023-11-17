@@ -3,10 +3,8 @@
 
 % Ray Propagation in Free Space
 
-n = 20; % # of rays
+n = 20; % # of rays (8 is the example in the handout but 20 is used here
 d = 0.2; % 0.2 m or 200 mm
-s = -pi / 20;
-a = (pi / 20 - s) / 9;
 angles = linspace(-pi / 20, pi / 20, n);
 
 rays_in1 = nan(4, n); % starting point: (0, 0, 0)
