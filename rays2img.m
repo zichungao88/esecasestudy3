@@ -40,7 +40,6 @@ Yedges = ((1:Npixels + 1) - (1 + Npixels + 1) / 2) * mPerPx;
 % histcounts2 for some reason assigns x to rows, y to columns
 img = histcounts2(y_in, x_in, Yedges, Xedges);
 
-
 % rescale img to uint8 dynamic range
 img = uint8(round(img/max(img(:)) * 255));
 x = Xedges([1 end]);
@@ -49,3 +48,6 @@ y = Yedges([1 end]);
 % figure;
 % image(x_edges([1 end]),y_edges([1 end]),img); axis image xy;
 end
+
+%%
+% Simulating a Hologram
