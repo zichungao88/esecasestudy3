@@ -76,9 +76,9 @@ exportgraphics(gca, 'light_field_clear.png');
 disp("d2 = " + d2 + " m");
 disp("f = " + f + " m");
 
-% Yes, now we can roughly identify the objects that emitted the light rays:
-% an avocado, a person (or a humanoid figure), the WashU logo, a building,
-% and the text "I just feel so empty inside". This is because the rays are
-% properly propagated with the correct value of d1 and a matching
-% combination of d2 and f, allowing the 3 million rays to converge to form
-% the visible image.
+% Yes, now we can roughly identify the (although still somewhat blurry) 
+% objects that emitted the light rays: an avocado, a person (or a humanoid 
+% figure), the WashU logo, a building, and the text "I just feel so empty 
+% inside". This is because the rays are properly propagated with the 
+% correct value of d1 and a matching combination of d2 and f, allowing the 
+% 3 million rays to converge to form the visible image.
