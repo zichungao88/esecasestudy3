@@ -5,9 +5,9 @@ load('lightField.mat');
 width = 0.015; % sensor width parameter for hand-tuning
 pixels = 800; % # of pixels parameter for hand-tuning
 
-[img1, x1, y1] = rays2img(rays(1, :), rays(3, :), width, pixels);
+img = rays2img(rays(1, :), rays(3, :), width, pixels);
 figure;
-imshow(img1);
+imshow(img);
 title("lightfield.mat with sensor width = " + width + " m");
 exportgraphics(gca, 'light_field.png');
 
@@ -25,9 +25,9 @@ Md = [1,     d,      0,      0;
       0,     0,      0,      1];
 
 rays_out = Md * rays;
-[img2, x2, y2] = rays2img(rays_out(1, :), rays_out(3, :), width, pixels);
+img_propagated = rays2img(rays_out(1, :), rays_out(3, :), width, pixels);
 figure;
-imshow(img2);
+imshow(img_propagated);
 title("lightfield.mat propagated a distance = " + d + " m");
 exportgraphics(gca, 'light_field_propagated.png');
 
@@ -45,29 +45,10 @@ exportgraphics(gca, 'light_field_propagated.png');
 
 f = 0.25; % constant
 d1 = 0.4; % variable
-d2 = 1 / (1 / f - 1 / d1);
 
-Md1 = [1,     d1,     0,      0;
-       0,     1,      0,      0;
-       0,     0,      1,      d1;
-       0,     0,      0,      1];
-
-Md2 = [1,     d2,     0,      0;
-       0,     1,      0,      0;
-       0,     0,      1,      d2;
-       0,     0,      0,      1];
-
-Mf = [1,    0,      0,      0;
-      -1/f, 1,      0,      0;
-      0,    0,      1,      0;
-      0,    0,      -1/f,   1];
-
-rays_out2 = Mf * rays; % passing through the lense
-rays_in3 = rays_out2;
-rays_out3 = Md2 * rays_in3; % post-lense phase
-[img3, x3, y3] = rays2img(rays_out3(1, :), rays_out3(3, :), width, pixels);
+[img_clear, d2] = propagate(width, pixels, f, d1);
 figure;
-imshow(flip(img3, 2));
+imshow(flip(img_clear, 2));
 title("lightfield.mat with d1 = " + d1 + " m, f = " + f + ...
     " m, and d2 = " + d2 + " m");
 exportgraphics(gca, 'light_field_clear.png');
