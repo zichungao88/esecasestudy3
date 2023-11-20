@@ -48,6 +48,3 @@ y = Yedges([1 end]);
 % figure;
 % image(x_edges([1 end]),y_edges([1 end]),img); axis image xy;
 end
-
-%%
-% Simulating a Hologram

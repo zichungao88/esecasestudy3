@@ -1,4 +1,4 @@
-% Case Study 3 Lab Exercise
+% Case Study 3 Lab Exercise: Ray Tracing
 % Distance = meters; Angle = radians
 
 % Ray Propagation in Free Space
@@ -47,6 +47,7 @@ hold off;
 title('Ray Propagation in Free Space');
 xlabel('z (m)');
 ylabel('x (m)');
+exportgraphics(gca, 'free_space.png');
 
 %%
 % Ray Propagation through Lenses
@@ -69,7 +70,7 @@ Md2 = [1,     d2,     0,      0;
 Mf = [1,    0,      0,      0;
       -1/f, 1,      0,      0;
       0,    0,      1,      0;
-      0,    0,      -1/f,   0];
+      0,    0,      -1/f,   1];
 
 % Md2 * (Mf * (Md1 * rays_in))
 rays_in1a = rays_in1; % (0, 0, 0)
@@ -118,3 +119,4 @@ hold off;
 title('Ray Propagation through Lenses');
 xlabel('z (m)');
 ylabel('x (m)');
+exportgraphics(gca, 'lens.png');
