@@ -6,7 +6,6 @@ width = 0.015; % sensor width parameter for hand-tuning
 pixels = 800; % # of pixels parameter for hand-tuning
 
 img = rays2img(rays(1, :), rays(3, :), width, pixels);
-figure;
 imshow(img);
 title("lightField.mat with sensor width = " + width + " m");
 exportgraphics(gca, 'light_field.png');
@@ -28,7 +27,7 @@ rays_out = Md * rays;
 img_propagated = rays2img(rays_out(1, :), rays_out(3, :), width, pixels);
 figure;
 imshow(img_propagated);
-title("lightField.mat propagated a distance = " + d + " m");
+title("lightField.mat propagated a distance d = " + d + " m");
 exportgraphics(gca, 'light_field_propagated.png');
 
 % The rays become even more dispersed and unclear after the propagation,
