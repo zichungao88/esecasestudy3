@@ -8,7 +8,7 @@ pixels = 800; % # of pixels parameter for hand-tuning
 img = rays2img(rays(1, :), rays(3, :), width, pixels);
 figure;
 imshow(img);
-title("lightfield.mat with sensor width = " + width + " m");
+title("lightField.mat with sensor width = " + width + " m");
 exportgraphics(gca, 'light_field.png');
 
 % We are unable to discern the object that generated the rays and cannot 
@@ -28,7 +28,7 @@ rays_out = Md * rays;
 img_propagated = rays2img(rays_out(1, :), rays_out(3, :), width, pixels);
 figure;
 imshow(img_propagated);
-title("lightfield.mat propagated a distance = " + d + " m");
+title("lightField.mat propagated a distance = " + d + " m");
 exportgraphics(gca, 'light_field_propagated.png');
 
 % The rays become even more dispersed and unclear after the propagation,
@@ -46,10 +46,10 @@ exportgraphics(gca, 'light_field_propagated.png');
 f = 0.25; % constant
 d1 = 0.4; % variable
 
-[img_clear, d2] = propagate(width, pixels, f, d1);
+[img_clear, d2] = propagate(rays, width, pixels, f, d1);
 figure;
 imshow(flip(img_clear, 2));
-title("lightfield.mat with d1 = " + d1 + " m, f = " + f + ...
+title("lightField.mat with d1 = " + d1 + " m, f = " + f + ...
     " m, and d2 = " + d2 + " m");
 exportgraphics(gca, 'light_field_clear.png');
 

@@ -1,8 +1,7 @@
-function [img, d2] = propagate(width, pixels, f, d1)
+function [img, d2] = propagate(rays, width, pixels, f, d1)
 % in order to maximize programming efficiency, we decided to write a
 % function to simulate the propagation of rays in lightField.mat, which
 % will be called in both Parts 2 and 3
-load('lightField.mat');
 d2 = 1 / (1 / f - 1 / d1);
 
 Md1 = [1,     d1,     0,      0;
