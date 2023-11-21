@@ -16,6 +16,6 @@ Mf = [1,    0,      0,      0;
 
 % "one line of code to draw any number of rays (line segments) between any 
 % arbitrary number of locations"
-rays_out = Md2 * (Mf * rays);
+rays_out = Md2 * Mf * rays;
 img = rays2img(rays_out(1, :), rays_out(3, :), width, pixels);
 end
